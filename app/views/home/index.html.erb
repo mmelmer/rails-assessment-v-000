@@ -1,7 +1,5 @@
 <h1>Welcome</h1>
 
-<h2>Shows:</h2>
+<h2><%= link_to "Venues.", venues_path %></h2>
 
-<% @shows.each do |show| %>
-  <p><%= show.venue.name %></p>
-<% end %>
+<h2><%= link_to "Songs.", songs_path %></h2>
