@@ -1,1 +1,5 @@
 <h1>Shows.</h1>
+
+<% @shows.each do |show| %>
+  <%= link_to "#{show.venue.name} - #{show.date}", show_path(show) %>
+<% end %>

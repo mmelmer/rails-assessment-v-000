@@ -3,5 +3,5 @@
 <p>Performed at:</p>
 
 <% @song.shows.each do |show| %>
-  <%= link_to "#{show.venue} - #{show.date}", show_path(show) %>
+  <%= link_to "#{show.venue.name} - #{show.date}", show_path(show) %>
 <% end %>
