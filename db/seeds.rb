@@ -10,3 +10,8 @@ end
     name: Faker::Commerce.product_name,
   )
 end
+
+Show.create(
+    venue: Venue.first,
+    date: 12/27/2017
+  )
