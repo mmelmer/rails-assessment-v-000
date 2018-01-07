@@ -4,4 +4,8 @@ class SongsController < ActionController::Base
     @songs = Song.all
   end
 
+  def show
+    @song = Song.find_by(params[:id])
+  end
+
 end
