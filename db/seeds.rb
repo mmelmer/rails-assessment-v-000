@@ -17,6 +17,6 @@ Show.create(
   )
 
 Performance.create(
-    song_id: 1
+    song_id: 1,
     show_id: 1
   )
