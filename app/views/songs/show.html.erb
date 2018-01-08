@@ -1,7 +1,13 @@
 <strong><h2><center><%= @song.name %></center></h2></strong>
 
+
+<p>Peformed <strong><%= @song.playcount %></strong> Time(s)</p>
+
 <p>Performed at:</p>
 
 <% @song.shows.each do |show| %>
   <%= link_to "#{show.venue.name} - #{show.date}", show_path(show) %>
 <% end %>
+
+
+
