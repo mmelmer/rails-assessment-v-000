@@ -5,7 +5,7 @@ class SongsController < ActionController::Base
   end
 
   def show
-    @song = Song.find_by(params[:id])
+    @song = Song.find(params[:id])
   end
 
 end
