@@ -15,3 +15,8 @@ Show.create(
     venue: Venue.first,
     date: 12/27/2017
   )
+
+Performance.create(
+    song_id: 1
+    show_id: 1
+  )
