@@ -5,4 +5,9 @@ class Song < ActiveRecord::Base
 
   validates :name, presence: true
 
+  def playcount
+    self.performances.count
+  end
+
+
 end
