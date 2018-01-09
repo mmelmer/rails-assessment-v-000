@@ -1,6 +1,8 @@
-<h1><center><%= @show.venue.name %> - <%= @show.date %></center></h1>
+<h2><center><%= @show.venue.name %> - <%= @show.date %></center></h2>
+
+<h3><strong>Setlist:</strong></h3>
 
 <p> <% @show.songs.each do |song| %>
-  <li><%= link_to "#{song.name}", song_path(song) %></li>
+  <li><%= link_to "#{song.name}", song_path(song) %></li><br>
   <% end %>
 </p>
