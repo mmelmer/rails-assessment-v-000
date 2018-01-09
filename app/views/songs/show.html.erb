@@ -1,18 +1,18 @@
 <strong><h2><center><%= @song.name %></center></h2></strong>
 
 
-<p>Peformed <strong><%= @song.playcount %></strong> 
+<h3>Peformed <strong><%= @song.playcount %></strong> 
   <% if @song.playcount == 1 %>
-    Time:</p>
+    Time:</h3>
   <% elsif @song.playcount == 0 %>
-    Times.</p>
+    Times.</h3>
   <% else %>
-    Times:</p>
+    Times:</h3>
   <% end %>
 
 
 <% @song.shows.each do |show| %>
-  <%= link_to "#{show.venue.name} - #{show.date}", show_path(show) %>
+  <%= link_to "#{show.venue.name} - #{show.date}", show_path(show) %><br><br>
 <% end %>
 
 
