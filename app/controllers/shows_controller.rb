@@ -8,4 +8,12 @@ class ShowsController < ApplicationController
     @show = Show.find_by(params[:id])
   end
 
+  def new
+    @show = Show.new
+  end
+
+  def edit
+    @show = Show.find(params[:id])
+  end
+
 end
