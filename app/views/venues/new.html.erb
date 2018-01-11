@@ -1,0 +1,7 @@
+<strong><h2><center>Add a New Venue!</center></h2></strong>
+
+<%= form_for(@venue) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
