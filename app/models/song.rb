@@ -1,7 +1,7 @@
 class Song < ActiveRecord::Base
 
-  has_many :performances
-  has_many :shows, through: :performances
+  has_many :song_shows
+  has_many :shows, through: :song_shows
 
   validates :name, presence: true
 
