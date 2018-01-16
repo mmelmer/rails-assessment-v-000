@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115220150) do
+ActiveRecord::Schema.define(version: 20180116133817) do
 
   create_table "shows", force: :cascade do |t|
     t.integer "user_id"
@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 20180115220150) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.boolean "original"
+    t.string  "album"
   end
 
   create_table "users", force: :cascade do |t|
