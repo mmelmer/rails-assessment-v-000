@@ -5,4 +5,6 @@ class Show < ActiveRecord::Base
   has_many :song_shows
   has_many :songs, through: :song_shows
 
+  validates :date, presence: true
+
 end
