@@ -12,6 +12,15 @@ class ShowsController < ApplicationController
     @show = Show.new
   end
 
+  def create
+    @show = Show.new(show_params)
+    if @show.save
+      redirect_to show_path(@show)
+    else
+      render :new
+    end
+  end
+
   def edit
     @show = Show.find(params[:id])
   end
@@ -19,7 +28,7 @@ class ShowsController < ApplicationController
   private
 
     def show_params
-      params.require(:show).permit (
+      params.require(:show).permit(
         :date,
         :user_id,
         :venue_id,
