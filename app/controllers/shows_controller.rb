@@ -16,4 +16,16 @@ class ShowsController < ApplicationController
     @show = Show.find(params[:id])
   end
 
+  private
+
+    def show_params
+      params.require(:show).permit (
+        :date,
+        :user_id,
+        :venue_id,
+        song_ids:[],
+        songs_attributes: [:name] # <-- add album/original attributes?
+      )
+    end
+
 end
