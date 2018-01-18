@@ -24,7 +24,11 @@ class SongsController < ActionController::Base
   private
 
     def song_params
-      params.require(:song).permit(:name)
+      params.require(:song).permit(
+        :name,
+        :album,
+        :original
+      )
     end
 
 end
