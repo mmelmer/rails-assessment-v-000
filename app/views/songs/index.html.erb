@@ -1,7 +1,0 @@
-<h1>Songs.</h1>
-
-<h3><%= link_to "Add a New Song Here.", new_song_path %></h3>
-  <br>
-<% @songs.each do |song| %>
-  <%= link_to "#{song.name}", song_path(song) %><br>
-<% end %>

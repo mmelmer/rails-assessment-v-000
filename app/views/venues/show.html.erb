@@ -1,8 +1,0 @@
-<strong><h2><center><%= @venue.name %></center></h2></strong>
-
-<h3><strong>Shows:</strong></h3>
-
-<p> <% @venue.shows.each do |show| %>
-  <li><%= link_to "#{show.date}", show_path(show) %></li><br>
-  <% end %>
-</p>
