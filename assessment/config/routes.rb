@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  
+  resources :albums
+  resources :artists
+  resources :genres
+
   devise_for :users
-  root to: "home#index"
+  root to: "albums#index"
 
 
 end
