@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120011418) do
+ActiveRecord::Schema.define(version: 20180122022132) do
+
+  create_table "album_genres", force: :cascade do |t|
+    t.integer "album_id"
+    t.integer "genre_id"
+  end
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -23,27 +28,16 @@ ActiveRecord::Schema.define(version: 20180120011418) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "albums_genres", id: false, force: :cascade do |t|
-    t.integer "album_id", null: false
-    t.integer "genre_id", null: false
+  create_table "artist_genres", force: :cascade do |t|
+    t.integer "artist_id"
+    t.integer "genre_id"
   end
-
-  add_index "albums_genres", ["album_id", "genre_id"], name: "index_albums_genres_on_album_id_and_genre_id"
-  add_index "albums_genres", ["genre_id", "album_id"], name: "index_albums_genres_on_genre_id_and_album_id"
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "artists_genres", id: false, force: :cascade do |t|
-    t.integer "artist_id", null: false
-    t.integer "genre_id",  null: false
-  end
-
-  add_index "artists_genres", ["artist_id", "genre_id"], name: "index_artists_genres_on_artist_id_and_genre_id"
-  add_index "artists_genres", ["genre_id", "artist_id"], name: "index_artists_genres_on_genre_id_and_artist_id"
 
   create_table "genres", force: :cascade do |t|
     t.string   "name"
