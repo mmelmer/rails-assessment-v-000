@@ -15,7 +15,21 @@ artist2 = Artist.create(
   )
 
 album1 = Album.create(
-  name: "songs.",
-  artist_id: 1
+  name: "songs",
+  artist_id: 1,
+  user_id:2
   )
 
+album2 = Album.create(
+  name: "Some more songs",
+  artist_id: 2,
+  user_id: 1
+  )
+
+user1 = User.create(
+  email: "mike@mail.com"
+  )
+
+user2 = User.create(
+  email: "griz@mail.com"
+  )
