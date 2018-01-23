@@ -4,8 +4,12 @@ class AlbumsController < ApplicationController
     @albums = Album.all
   end
 
+  def show
+    @album = Album.find_by(id: params[:id])
+  end
+
   def new
-    @artist = Arist.new
+    @album = Album.new
   end
 
 end
