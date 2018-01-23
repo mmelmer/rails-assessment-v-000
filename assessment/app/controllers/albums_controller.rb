@@ -14,6 +14,11 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
+    if @album.save
+      redirect_to album_path(@album)
+    else
+      render :new
+    end
   end
 
   private
