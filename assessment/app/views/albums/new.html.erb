@@ -2,18 +2,33 @@
 
 <%= form_for(@album) do |f| %>
   
-
+  
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :review %>
-  <%= f.text_area :review %>
+  
 
-  <h3>Genre(s):</h3>
-    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
-    <p>Add a new genre:</p>
-    <%= fields_for @genre do |f|%>
+  <h3>Artist:</h3>
+    <%= f.collection_check_boxes :artist_id, Artist.all, :id, :name %>
+    <p>OR add a new artist:</p>
+    <%= fields_for @artist do |f|%>
       <%= f.label :name %>
       <%= f.text_field :name %>
     <% end %>
+
+
+  <h3>Genre(s):</h3>
+    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
+    <p>AND/OR create a new genre:</p>
+    <%= fields_for @genre do |f|%>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    <% end %><br><br
+
+
+  <%= f.label :review %>
+  <%= f.text_area :review %>
+
+
+  <%= f.submit %>
 
 <% end %>

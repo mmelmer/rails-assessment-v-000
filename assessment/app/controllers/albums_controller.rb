@@ -11,6 +11,7 @@ class AlbumsController < ApplicationController
   def new
     @album = Album.new
     @genre = Genre.new
+    @artist = Artist.new
   end
 
   def create
