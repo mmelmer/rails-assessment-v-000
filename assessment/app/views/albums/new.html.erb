@@ -1,0 +1,19 @@
+<h1><center>ADD YoUR ALBUM REVIEW HERE.</center></h1>
+
+<%= form_for(@album) do |f| %>
+  
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :review %>
+  <%= f.text_area :review %>
+
+  <h3>Genre(s):</h3>
+    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
+    <p>Add a new genre:</p>
+    <%= fields_for @genre do |f|%>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    <% end %>
+
+<% end %>

@@ -10,6 +10,7 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    @genre = Genre.new
   end
 
   def create
@@ -29,7 +30,7 @@ class AlbumsController < ApplicationController
           :review,
           :release_date,
           genre_ids: [],
-          genres_attributes: [:name]
+          genres_attributes: [:name],
           artists_attributes: [:name]
         )
     end
