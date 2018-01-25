@@ -8,7 +8,7 @@
   
 
   <h3>Artist:</h3>
-    <%= f.collection_check_boxes :artist_id, Artist.all, :id, :name %>
+    <%= f.collection_select :artist_id, Artist.all, :id, :name %>
     <p>OR add a new artist:</p>
     <%= fields_for @artist do |f|%>
       <%= f.label :name %>
