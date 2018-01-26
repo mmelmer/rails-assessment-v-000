@@ -8,20 +8,16 @@ class Album < ActiveRecord::Base
 
 
     def artist_attributes=(artist_attributes)
-      artist_attributes.values.each do |artist_attribute|
-        if artist_attribute[:name] != ""
-          artist = Artist.find_or_create_by(artist_attributes)
-          self.artist = artist
-        end
+      if artist_attributes[:name] != ""
+        artist = Artist.find_or_create_by(artist_attributes)
+        self.artist = artist
       end
     end
 
     def genres_attributes=(genres_attributes)
-      genres_attributes.values.each do |genre_attribute|
-        if genre_attribute[:name] != ""
-          genre = Genre.find_or_create_by(genres_attributes)
-          self.genres << genre
-        end
+      if genre_attributes[:name] != ""
+        genre = Genre.find_or_create_by(genres_attributes)
+        self.genres << genre
       end
     end
 
