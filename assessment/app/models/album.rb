@@ -7,10 +7,10 @@ class Album < ActiveRecord::Base
   validates :name, presence: true
 
 
-    def artists_attributes=(artists_attributes)
-      artists_attributes.values.each do |artist_attribute|
+    def artist_attributes=(artist_attributes)
+      artist_attributes.values.each do |artist_attribute|
         if artist_attribute[:name] != ""
-          artist = Artist.find_or_create_by(artists_attributes)
+          artist = Artist.find_or_create_by(artist_attributes)
           self.artist = artist
         end
       end
@@ -20,7 +20,7 @@ class Album < ActiveRecord::Base
       genres_attributes.values.each do |genre_attribute|
         if genre_attribute[:name] != ""
           genre = Genre.find_or_create_by(genres_attributes)
-          self.genres << artist
+          self.genres << genre
         end
       end
     end

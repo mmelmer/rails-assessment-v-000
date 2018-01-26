@@ -1,9 +1,9 @@
-<h1><center>ADD YoUR ALBUM REVIEW HERE.</center></h1>
+<h1><center>ADD YOUR ALBUM REVIEW HERE.</center></h1>
 
 <%= form_for(@album) do |f| %>
   
   
-  <%= f.label :name %>
+  <h3><%= f.label :name, "Album Name:" %></h3>
   <%= f.text_field :name %>
   
 
@@ -11,7 +11,6 @@
     <%= f.collection_select :artist_id, Artist.all, :id, :name %>
     <p>OR add a new artist:</p>
     <%= fields_for @artist do |f|%>
-      <%= f.label :name %>
       <%= f.text_field :name %>
     <% end %>
 
@@ -19,16 +18,15 @@
   <h3>Genre(s):</h3>
     <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
     <p>AND/OR create a new genre:</p>
-    <%= fields_for @genre do |f|%>
-      <%= f.label :name %>
+    <%= fields_for @genre do |f| %>
       <%= f.text_field :name %>
     <% end %><br><br
 
 
-  <%= f.label :review %>
+  <h3>Write Your Review Here.</h3><br>
   <%= f.text_area :review %>
 
 
-  <%= f.submit %>
+  <%= f.submit "Submit Review" %>
 
 <% end %>

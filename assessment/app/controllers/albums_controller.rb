@@ -5,13 +5,13 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find_by(id: params[:id])
+    @album = Album.find(params[:id])
   end
 
   def new
     @album = Album.new
-    @genre = Genre.new
     @artist = Artist.new
+    @genre = Genre.new
   end
 
   def create
