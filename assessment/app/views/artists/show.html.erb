@@ -1,4 +1,4 @@
-<h1><center><strong><%= "#{@artist.name}" %></strong></center></h1>
+<h1><center><strong><%= @artist.name %></strong></center></h1>
 
 <% @artist.albums.each do |album| %>
   <%= link_to "#{album.name}", album_path(album) %>

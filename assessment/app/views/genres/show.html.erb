@@ -1,0 +1,5 @@
+<h1><center><strong> <%= @genre.name %> </strong></center></h1>
+
+  <% @genre.albums.each do |album| %>
+    <%= link_to "#{album.name}", album_path(album) %><br><br>
+  <% end %>
