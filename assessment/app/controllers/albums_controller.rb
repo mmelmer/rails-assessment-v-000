@@ -10,8 +10,6 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
-    @artist = Artist.new
-    @genre = Genre.new
   end
 
   def create
@@ -21,6 +19,10 @@ class AlbumsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @album = Album.find(params[:id])
   end
 
   private

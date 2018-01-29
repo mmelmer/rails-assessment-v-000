@@ -1,0 +1,30 @@
+<%= form_for(@album) do |f| %>
+  
+  
+  <h3><%= f.label :name, "Album Name:" %></h3>
+  <%= f.text_field :name %>
+  
+
+  <h3>Artist:</h3>
+    <%= f.collection_select :artist_id, Artist.all, :id, :name %>
+    <p>OR add a new artist:</p>
+    <%= f.fields_for :artist, @album.build_artist do |f_artist|%>
+      <%= f_artist.text_field :name %>
+    <% end %>
+
+
+  <h3>Genre(s):</h3>
+    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
+    <p>AND/OR create a new genre:</p>
+    <%= f.fields_for :genre, @album.genres.build do |f_genre| %>
+      <%= f_genre.text_field :name %>
+    <% end %><br><br
+
+
+  <h3>Write Your Review Here.</h3><br>
+  <%= f.text_area :review %>
+
+
+  <%= f.submit "Submit Review" %>
+
+<% end %>

@@ -15,7 +15,7 @@ class Album < ActiveRecord::Base
     end
 
     def genres_attributes=(genres_attributes)
-      if genre_attributes[:name] != ""
+      if genres_attributes[:name] != ""
         genre = Genre.find_or_create_by(genres_attributes)
         self.genres << genre
       end
