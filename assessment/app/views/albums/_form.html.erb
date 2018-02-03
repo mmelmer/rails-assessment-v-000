@@ -5,18 +5,21 @@
   <%= f.text_field :name %>
   
 
-  <h3>Artist:</h3>
+  <h3>Artist:</h3>  
     
     <%= f.collection_select :artist_id, Artist.all, :id, :name %>    
-    <%= f.fields_for :artist, @album.build_artist do |f_artist|%>      
-
       <p>OR add a new artist:</p>
+    <%= f.fields_for :artist, @album.build_artist do |f_artist| %>     
       <%= f_artist.text_field :name %>
     <% end %>
 
 
   <h3>Genre(s):</h3>
-    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
+    <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |b| %>
+      <%= b.label %>
+      <%= b.check_box %>
+      <%= b.object.name%>
+      <% end %>
     <p>AND/OR create a new genre:</p>
     <%= f.fields_for :genre, @album.genres.build do |f_genre| %>
       <%= f_genre.text_field :name %>
