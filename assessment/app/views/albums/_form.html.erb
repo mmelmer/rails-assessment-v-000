@@ -15,11 +15,8 @@
 
 
   <h3>Genre(s):</h3>
-    <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |b| %>
-      <%= b.label %>
-      <%= b.check_box %>
-      <%= b.object.name%>
-      <% end %>
+    <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>
+      
     <p>AND/OR create a new genre:</p>
     <%= f.fields_for :genre, @album.genres.build do |f_genre| %>
       <%= f_genre.text_field :name %>
