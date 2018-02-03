@@ -45,6 +45,7 @@ class AlbumsController < ApplicationController
           :review,
           :release_date,
           :image,
+          :artist_id,
           genre_ids: [],
           genres_attributes: [:id, :name],
           artist_attributes: [:id, :name]
