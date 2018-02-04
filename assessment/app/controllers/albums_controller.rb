@@ -47,8 +47,8 @@ class AlbumsController < ApplicationController
           :image,
           :artist_id,
           genre_ids: [],
-          genres_attributes: [:id, :name],
-          artist_attributes: [:id, :name]
+          genres_attributes: [:name],
+          artist_attributes: [:name]
         )
     end
 
