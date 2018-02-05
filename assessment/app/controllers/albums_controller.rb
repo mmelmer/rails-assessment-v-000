@@ -9,6 +9,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @album.page_count
   end
 
   def new

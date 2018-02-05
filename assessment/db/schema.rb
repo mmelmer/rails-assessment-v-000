@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204002822) do
+ActiveRecord::Schema.define(version: 20180205023520) do
 
   create_table "album_genres", force: :cascade do |t|
     t.integer "album_id"
@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(version: 20180204002822) do
     t.date     "release_date"
     t.integer  "artist_id"
     t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "counter",            default: 0
   end
 
   create_table "artists", force: :cascade do |t|

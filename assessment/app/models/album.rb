@@ -21,7 +21,19 @@ class Album < ActiveRecord::Base
       end
     end
 
+    def genre_attributes=(genre_attributes)
+      if genre_attributes[:name] != ""
+        genre = Genre.find_or_create_by(genre_attributes)
+        self.genres << genre
+        self.save
+      end
+    end
 
+    def page_count
+      self.counter +=1
+      self.save
+      return self.counter
+    end
 
 
 end
