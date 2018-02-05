@@ -8,6 +8,9 @@ class Album < ActiveRecord::Base
 
   validates :artist, presence: true
 
+  accepts_nested_attributes_for :genres
+
+
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
@@ -18,12 +21,7 @@ class Album < ActiveRecord::Base
       end
     end
 
-    def genres_attributes=(genres_attributes)
-      if genres_attributes[:name] != ""
-        genre = Genre.find_or_create_by(genres_attributes)
-        self.genres << genre
-      end
-    end
+
 
 
 end
