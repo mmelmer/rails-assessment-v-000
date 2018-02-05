@@ -1,5 +1,14 @@
 <%= form_for @album, html: { multipart: true } do |f| %>
   
+
+  <% if @album.errors.any? %>
+  <div class="error_explanation">
+    We can't save your review because:<br>
+    <% @album.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
   
   <h3><%= f.label :name, "Album Name:" %></h3>
   <%= f.text_field :name %>
