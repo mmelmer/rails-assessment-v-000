@@ -1,5 +1,9 @@
 <h1><center><%= @user.email%>'s Reviews</center></h1>
 
-<p> <% @user.albums.each do |album| %><p>
+    <% if !@user.albums.empty? %>
+      <p> <% @user.albums.each do |album| %><p>
       <%= link_to "#{album.name}", album_path(album) %>
+      <% end %>
+    <% else %>
+      <p>Sorry, <%= @user.email %> hasn't posted any reviews yet!</p>
     <% end %>

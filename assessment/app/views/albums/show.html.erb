@@ -4,5 +4,5 @@
 <% @album.genres.each do |genre| %>
   <p><h4><%= link_to "#{genre.name}", genre_path(genre) %></h4></p>
 <% end %>
-<p>by: <%= current_user.email %></p>
+<p>by: <%= @album.user.email %></p>
 <p><%= @album.review %></p>
