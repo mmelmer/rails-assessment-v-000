@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
   
   resources :albums
-  resources :artists
+
+  #nested resources for albums
+  resources :artists do
+    resources :albums
+  end
+  
   resources :genres, only: [:show, :index]
   devise_for :users
-  #get '/users/sign_up' => 'devise/registrations#new'
-  #get '/users/sign_in' => 'devise/sessions#new'
-  resources :users, only: [:show, :index]
+  
+  #nested resources for albums
+  resources :users, only: [:show, :index] do
+    resources :albums
+  end
 
   root to: "albums#index"
 
