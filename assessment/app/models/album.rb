@@ -14,6 +14,10 @@ class Album < ActiveRecord::Base
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
+  scope :by_genre, ->(genre_id){ joins(:album_genres).where("album_genres.genre_id = ?", genre_id) }
+  scope :by_artist, ->(artist_id){ where("albums.artist_id = ?", artist_id) }
+
+
     def artist_attributes=(artist_attributes)
       if artist_attributes[:name] != ""
         artist = Artist.find_or_create_by(artist_attributes)
