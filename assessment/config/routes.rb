@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   #nested resources for albums
-  resources :users, only: [:show, :index] do
+  resources :users, only: [:show, :index, :edit] do
     resources :albums
   end
 

@@ -1,0 +1,24 @@
+<%= form_for @user, html: { multipart: true } do |f| %>
+  
+
+  <% if @user.errors.any? %>
+  <div class="error_explanation">
+    We can't save your profile because:<br>
+    <% @user.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
+  
+
+  <h3>Upload Profile Image Here:</h3><br>
+    <%= f.file_field :image %>
+
+
+  <h3>Enter your bio here.</h3><br>
+  <%= f.text_area :bio %>
+
+
+  <%= f.submit "Update Your Profile" %>
+
+<% end %>
