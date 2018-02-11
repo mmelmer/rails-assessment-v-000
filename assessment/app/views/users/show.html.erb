@@ -4,6 +4,8 @@
       <p> <% @user.albums.each do |album| %><p>
       <%= link_to "#{album.name}", album_path(album) %>
       <% end %>
+    <% elsif @user == current_user %>
+      <p>Sorry, you haven't posted any reviews yet!</p>
     <% else %>
       <p>Sorry, <%= @user.email %> hasn't posted any reviews yet!</p>
     <% end %>
