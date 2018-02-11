@@ -10,15 +10,19 @@
   </div>
 <% end %>
   
+<h2><center>Tell Us More About Yourself!</center></h2>
 
-  <h3>Upload Profile Image Here:</h3><br>
+
+  <h3>Upload Profile Image Here:</h3>
     <%= f.file_field :image %>
 
 
-  <h3>Enter your bio here.</h3><br>
+  <h3>Enter your bio here.</h3>
   <%= f.text_area :bio %>
 
 
   <%= f.submit "Update Your Profile" %>
 
-<% end %>
+<% end %><br>
+
+<%= link_to "No thanks - just take me to the home page.", root_path %>
