@@ -5,5 +5,5 @@
 <% end %>
   <% @albums.each do |album| %>
     <p><%= link_to "#{album.name} - #{album.artist.name}", album_path(album) %></p>
-    <ul>by <%=  %></ul>
+    <ul>by <%= album.user.email %></ul>
   <% end %>
