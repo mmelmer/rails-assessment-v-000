@@ -1,11 +1,19 @@
-<h1><center><%= @user.email%>'s Reviews</center></h1>
+<h1><center><%= @user.email%></center></h1>
+
+    
+    <% if @user.image%>
+      <p> <%= link_to image_tag(@user.image.url(:med)), @user.image.url %> </p>
+    <% end %>
+    
+    <p>Bio:</p>
+    <%= @user.bio %>
 
     <% if !@user.albums.empty? %>
       <p> <% @user.albums.each do |album| %><p>
       <%= link_to "#{album.name}", album_path(album) %>
       <% end %>
     <% elsif @user == current_user %>
-      <p>Sorry, you haven't posted any reviews yet!</p>
+      <p>You haven't posted any <%= link_to "reviews", new_album_path %> yet!</p>
     <% else %>
       <p>Sorry, <%= @user.email %> hasn't posted any reviews yet!</p>
     <% end %>
