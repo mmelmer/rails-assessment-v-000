@@ -1,5 +1,9 @@
 <h1><center><strong>Artists</strong></center></h1>
 
+<p>Narrow Results by Reviewer</p>
+
+<p>Narrow Results by Genre</p>
+
 <% @artists.each do |artist| %>
   <%= link_to "#{artist.name}", artist_path(artist) %> <br><br>
 <% end %>

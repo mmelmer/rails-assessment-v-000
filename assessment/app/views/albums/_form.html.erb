@@ -2,7 +2,7 @@
   
 
   <% if @album.errors.any? %>
-  <div class="error_explanation">
+  <div class="alert-danger">
     We can't save your review because:<br>
     <% @album.errors.full_messages.each do |msg| %>
       <%= msg %><br>
@@ -24,7 +24,9 @@
 
 
   <h3>Genre(s):</h3>
+    <div class="checkbox">
     <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>
+    </div>
     <p>AND/OR create a new genre:</p>
     <%= f.fields_for :genres, @album.genres.build do |genres_fields| %>
       <%= genres_fields.text_field :name %>
