@@ -8,10 +8,4 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
 
-  def narrow_genre
-  end
-
-  def narrow_artist
-  end
-
 end

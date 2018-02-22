@@ -4,6 +4,8 @@ class AlbumsController < ApplicationController
 
 
   def index
+    @users = User.all
+    @artists = Artist.all
     if !params[:artist_id].blank?
       @albums = Album.by_artist(params[:artist_id])
     else

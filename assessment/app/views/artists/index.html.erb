@@ -1,9 +1,16 @@
 <h1><center><strong>Artists</strong></center></h1>
 
-<p>Narrow Results by Reviewer</p>
 
-<p>Narrow Results by Genre</p>
+  <p class="label"> Filter by Reviewer </p>
+  <%= select_tag "user", options_from_collection_for_select(User.all, :id, :email) %> 
+
+  
+
+<p class="label"> Filter by Genre </p>
+ <%= select_tag "genre", options_from_collection_for_select(Genre.all, :id, :name) %> 
+
+<br><br>
 
 <% @artists.each do |artist| %>
-  <%= link_to "#{artist.name}", artist_path(artist) %> <br><br>
+  <p class="well"><%= link_to "#{artist.name}", artist_path(artist) %> </p>
 <% end %>
