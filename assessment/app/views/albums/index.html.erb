@@ -7,8 +7,8 @@
 <% end %>
 
   <% @albums.each do |album| %>
-    <p> <%= link_to image_tag(album.image.url(:med)), album.image.url %> </p>
-    <p><%= link_to "#{album.name} - #{album.artist.name}", album_path(album) %></p>
+    <p> <%= link_to image_tag(album.image.url(:med)), album_path(album) %> </p>
+    <p> <%= "#{album.name} - #{album.artist.name}" %></p>
     <ul>by <%= album.user.email %></ul>
   <% end %>
 
