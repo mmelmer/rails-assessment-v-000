@@ -16,7 +16,7 @@ class Album < ActiveRecord::Base
 
   #scope :by_genre, ->(genre_id){ joins(:album_genres).where("album_genres.genre_id = ?", genre_id) }
   scope :most_popular, -> (limit){ order("counter desc").limit(limit)}
-  scope :by_user, ->(user_id){ where("albums.user_id = ?", artist_id) }
+  scope :by_user, ->(user_id){ where("albums.user_id = ?", user_id) }
 
 
     def artist_attributes=(artist_attributes)
