@@ -9,7 +9,8 @@
     <%= @user.bio %>
 
     <% if !@user.albums.empty? %>
-      <p> <% @user.albums.each do |album| %><p>
+      <p> Top Reviews by<%= "#{@user.email}" %>:</p>
+      <p> <% @user.albums.most_popular(5).each do |album| %><p>
       <%= link_to "#{album.name}", album_path(album) %>
       <% end %>
     <% elsif @user == current_user %>
