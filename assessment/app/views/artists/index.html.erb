@@ -2,8 +2,8 @@
 
 
   <ul> Filter by Reviewer: </ul>
-  <%= form_tag albums_path, method: 'get' do %>
-    <%= select_tag "user", options_from_collection_for_select(User.all, :id, :email) %> 
+  <%= form_tag artists_path, method: 'get' do %>
+    <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :email) %> 
     <%= submit_tag "filter" %>
   <% end %>
 

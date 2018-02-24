@@ -11,3 +11,8 @@
     <p><%= link_to "#{album.name} - #{album.artist.name}", album_path(album) %></p>
     <ul>by <%= album.user.email %></ul>
   <% end %>
+
+<p><center>Most Popular Albums:</center></p>
+  <% @popular_albums.each do |popular_album| %>
+    <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p>
+  <% end %>

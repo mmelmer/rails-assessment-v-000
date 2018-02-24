@@ -11,6 +11,7 @@ class AlbumsController < ApplicationController
     else
       @albums = Album.all
     end
+    @popular_albums = Album.most_popular(5)
   end
 
   def show
