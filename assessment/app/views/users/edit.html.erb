@@ -16,7 +16,7 @@
     <%= f.file_field :image %>
 
   <h3>Enter your bio here.</h3>
-  <%= f.text_area :bio %>
+  <%= f.text_area :bio, :value => @bio %>
 
   <%= f.submit "Update Your Profile" %>
 

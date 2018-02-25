@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @bio = @user.bio
   end
 
   def update
