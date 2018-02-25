@@ -20,6 +20,12 @@
 
   <%= f.submit "Update Your Profile" %>
 
-<% end %><br>
+<% end %>
 
-<%= link_to "No thanks.", root_path %>
+<p class="label"><%= link_to "Edit Your Registration Info Here.", edit_user_registration_path %></p><br>
+
+<p class="label"><%= link_to "Cancel Your Account Here.", cancel_user_registration_path %></p><br>
+
+<br><br>
+
+<%= link_to "No thanks.", user_path(@user) %>
