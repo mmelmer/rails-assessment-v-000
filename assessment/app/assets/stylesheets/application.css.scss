@@ -14,9 +14,10 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets"
-@import "bootstrap"
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 
-label
-  color: blue
+.label {
+  color: #FFFFFF;
+}
