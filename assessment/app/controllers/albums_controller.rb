@@ -7,7 +7,8 @@ class AlbumsController < ApplicationController
     @users = User.all
     @artists = Artist.all
     if !params[:artist_id].blank?
-      @albums = Album.by_artist(params[:artist_id])
+      artist = Artist.find(params[:artist_id])
+      @albums = artist.albums
     else
       @albums = Album.all
     end

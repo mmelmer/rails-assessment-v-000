@@ -12,14 +12,14 @@
 
 
   <div class="col-md-8" style="background-color:yellow">
-    <center>Newest Albums:</center>
-    <% @albums.each do |album| %>
-      <p> <%= link_to image_tag(album.image.url(:large)), album_path(album) %> </p>
-      <p> <%= album.artist.name %>: <italics><%= album.name %> </italics></p>
-      <ul>by <%= album.user.email %></ul><br><br>
+    <center>Newest Albums:
+    <div class="row"><% @albums.each do |album| %>
+      <p> <%= link_to image_tag(album.image.url(:large)), album_path(album) %> 
+       <%= album.artist.name %>: <italics><%= album.name %> </italics>
+      by <%= album.user.email %><br>
     <% end %>
+    </center></p></div>
   </div>
-
 
   <% if !params[:artist_id] %>
     <div class="col-md-4" style="background-color:blue">
