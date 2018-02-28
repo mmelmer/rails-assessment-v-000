@@ -4,7 +4,7 @@
 
 <div class="btn-group">
   <% @album.genres.each do |genre| %>
-    <div class="btn"><h4><%= link_to "#{genre.name}", genre_path(genre) %></div>
+    <h4><%= link_to "#{genre.name}", genre_path(genre), class: 'btn btn-success' %>
   <% end %>
 </div>
 
