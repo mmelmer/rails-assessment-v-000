@@ -24,7 +24,7 @@
 
 
   <h3>Genre(s):</h3>
-    <div class="checkbox">
+    <div class="container">
     <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>
     </div>
     <p>AND/OR create a new genre:</p>

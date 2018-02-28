@@ -1,27 +1,32 @@
 <h1 class="jumbotron"><strong><center>Welcome to Album Reviews!</center></strong></h1>
 <% if !params[:artist_id] %>
 
-<div class="center-block">
+<div>
   <p class="label"><%= link_to "Browse by Artist", artists_path %></p>
   <p class="label"><%= link_to "Browse by User", users_path %></p>
   <p class="label"><%= link_to "Browse by Genre", genres_path %></p>
   <% end %>
 </div
 
-<div class="row">
+<div class="container">
 
-  <div class="col-md-0"><% @albums.each do |album| %>
-    <p> <%= link_to image_tag(album.image.url(:med)), album_path(album) %> </p>
-    <p class="media-body"> <%= "#{album.name} - #{album.artist.name}" %></p>
-    <ul class="media-body">by <%= album.user.email %></ul></div>
-  <% end %>
+
+  <div class="col-md-8" style="background-color:yellow">
+    <center>Newest Albums:</center>
+    <% @albums.each do |album| %>
+      <p> <%= link_to image_tag(album.image.url(:large)), album_path(album) %> </p>
+      <p> <%= album.artist.name %>: <italics><%= album.name %> </italics></p>
+      <ul>by <%= album.user.email %></ul><br><br>
+    <% end %>
+  </div>
 
 
   <% if !params[:artist_id] %>
-    <div class="col-md-4 col-md-offset-8"><center>Most Popular Albums:</center>
+    <div class="col-md-4" style="background-color:blue">
+      <center>Most Popular Albums:</center>
       <% @popular_albums.each do |popular_album| %>
         <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p>
-      <% end %></div>
+      <% end %>
+    </div>
   <% end %>
-
 </div>
