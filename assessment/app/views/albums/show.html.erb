@@ -6,3 +6,7 @@
 <% end %>
 <p>by: <%= @album.user.email %></p>
 <p><%= @album.review %></p>
+
+<% if @album.user_id == current_user.id %>
+  <p class="label"><%= link_to "edit this review.", edit_album_path(@album) %></p>
+<% end %>
