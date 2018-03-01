@@ -40,6 +40,8 @@ gem 'devise'
 
 gem 'omniauth'
 
+gem 'dotenv-rails'
+
 gem 'omniauth-spotify'
 
 group :development, :test do
