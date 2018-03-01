@@ -1,3 +1,5 @@
-use OmniAuth::Builder do
-  provider "soundcloud", ENV['SOUNDCLOUD_CLIENT_ID'], ENV['SOUNDCLOUD_SECRET']
+keys = Rails.application.secrets
+
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :spotify, keys.spotify['client_id'], keys.spotify['client_secret'], scope: 'playlist-read-private user-read-private user-read-email'
 end
