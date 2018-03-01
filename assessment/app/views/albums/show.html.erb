@@ -3,6 +3,7 @@
 <p><h3>Released: <%= @album.release_date %></h3></p>
 
 <div class="btn-group">
+  <div class="btn-label">Genre(s):</div>
   <% @album.genres.each do |genre| %>
     <h4><%= link_to "#{genre.name}", genre_path(genre), class: 'btn btn-success' %>
   <% end %>
