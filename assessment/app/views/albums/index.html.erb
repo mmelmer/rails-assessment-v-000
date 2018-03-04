@@ -25,6 +25,7 @@
     <div class="col-md-4" style="background-color:blue">
       <center>Most Popular Albums:</center>
       <% @popular_albums.each do |popular_album| %>
+        <p> <%= link_to image_tag(popular_album.image.url(:small)), album_path(popular_album) %> 
         <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p>
       <% end %>
     </div>

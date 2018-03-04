@@ -8,8 +8,15 @@ Rails.application.routes.draw do
   end
   
   resources :genres, only: [:show, :index]
-  devise_for :users
   
+
+  devise_scope :user do 
+    get '/auth/spotify' => 'callbacks#spotify'
+  end
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+
+
   #nested resources for albums within users
   resources :users, only: [:show, :index, :edit, :update] do
     resources :albums

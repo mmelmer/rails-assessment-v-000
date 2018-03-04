@@ -1,5 +1,5 @@
-# keys = Rails.application.secrets
+keys = Rails.application.secrets
 
-# Rails.application.config.middleware.use OmniAuth::Builder do
-#   provider :spotify, keys.spotify['client_id'], keys.spotify['client_secret'], scope: 'playlist-read-private user-read-private user-read-email'
-# end
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :spotify, ENV['CLIENT_ID'], ENV['CLIENT_SECRET'], scope: 'playlist-read-private user-read-private user-read-email'
+end
