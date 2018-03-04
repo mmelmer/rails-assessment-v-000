@@ -36,15 +36,13 @@ gem 'autoprefixer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-
-gem 'dotenv-rails'
-
 gem 'devise'
 
-gem 'omniauth'
+#gem 'dotenv-rails'
 
-gem 'omniauth-spotify'
+gem 'omniauth-facebook'
+
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
