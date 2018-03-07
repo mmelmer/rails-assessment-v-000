@@ -29,6 +29,8 @@ class UsersController < ApplicationController
         :email,
         :image,
         :bio,
+        :provider,
+        :uid,
         album_ids: []
         )
     end

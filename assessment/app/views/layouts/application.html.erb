@@ -33,7 +33,7 @@
             <li> <%= link_to "Post a New Review", new_album_path %> </li>
           <% else %>
             <li><%=link_to "Sign In", new_user_session_path %></li>
-            <li><%=link_to "Sign In With Spotify", '/auth/spotify' %></li>
+            <li><%=link_to "Sign In With Facebook", user_facebook_omniauth_authorize_path %></li>
             <li><%=link_to "Sign Up", new_user_registration_path %></li>
           <% end %>
         </ul>
