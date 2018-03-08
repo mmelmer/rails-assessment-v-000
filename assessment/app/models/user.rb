@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :albums
   
-  has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
+  has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }, :default_url => "default_:style.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   
 def self.from_omniauth(auth)

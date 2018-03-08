@@ -1,5 +1,5 @@
 <h1><center><%= "#{@album.artist.name} - #{@album.name}" %></center></h1>
-<p> <%= link_to image_tag(@album.image.url(:med)), @album.image.url %> </p>
+<p> <%= image_tag(@album.image.url(:med)) %> </p>
 <p><h3>Released: <%= @album.release_date %></h3></p>
 
 <div class="btn-group">
