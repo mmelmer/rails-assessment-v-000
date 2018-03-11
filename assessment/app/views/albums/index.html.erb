@@ -1,9 +1,9 @@
 <% if !params[:artist_id] %>
 
-  <div class="container" style="background-color:lightgray">
-    <p class="label"><%= link_to "Browse Artists", artists_path %></p>
+  <div class="container-fluid" style="background-color:lightgray">
+    <center><p class="label"><%= link_to "Browse Artists", artists_path %></p>
     <p class="label"><%= link_to "Browse Users", users_path %></p>
-    <p class="label"><%= link_to "Browse Genres", genres_path %></p>
+    <p class="label"><%= link_to "Browse Genres", genres_path %></p></center>
   </div>
 <% end %>
 
