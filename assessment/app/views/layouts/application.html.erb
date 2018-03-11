@@ -18,11 +18,9 @@
 <body>
 
 
- <header class="navbar  navbar-inverse">
-    <div class="navbar-collapse">
+ <header class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-
-        <ul class="nav navbar-nav">
+        <div class="col-md-4">
             <% if user_signed_in? %>
               <p>Logged in as <%= current_user.email %></o><br>
               <p><%= link_to "Edit Your Profile", edit_user_path(current_user) %></p>
@@ -36,14 +34,12 @@
             <li><%=link_to "Sign In With Facebook", user_facebook_omniauth_authorize_path %></li>
             <li><%=link_to "Sign Up", new_user_registration_path %></li>
           <% end %>
-        </ul>
-
-
+        </div>
+        <div class="col-md-8">
+          <h1><p class="text-primary">ALBUM REVIEWS.</p></h1>
+        </div>
       </div>
-    </div>
   </header>
-
-
 
 <%= yield %>
 

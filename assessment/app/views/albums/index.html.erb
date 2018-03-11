@@ -1,20 +1,20 @@
-<h1 class="jumbotron"><strong><center>Welcome to Album Reviews!</center></strong></h1>
 <% if !params[:artist_id] %>
 
-<div>
-  <p class="label"><%= link_to "Browse by Artist", artists_path %></p>
-  <p class="label"><%= link_to "Browse by User", users_path %></p>
-  <p class="label"><%= link_to "Browse by Genre", genres_path %></p>
-  <% end %>
-</div
+  <div class="container" style="background-color:lightgray">
+    <p class="label"><%= link_to "Browse Artists", artists_path %></p>
+    <p class="label"><%= link_to "Browse Users", users_path %></p>
+    <p class="label"><%= link_to "Browse Genres", genres_path %></p>
+  </div>
+<% end %>
+
 
 <div class="container">
 
 
   <div class="col-md-8" style="background-color:yellow">
-    <center>Latest Reviews:</center>
+    <center><h2>Latest Reviews:</h2></center>
     <table class="table hover-table">
-      <% @albums.each do |album| %>
+      <% @albums[0..9].each do |album| %>
         <tr>
           <td><%= link_to image_tag(album.image.url(:large)), album_path(album) %></td>
           <td><h2><%= album.artist.name %>: <em><%= album.name %></em></h2>
@@ -26,7 +26,7 @@
 
   <% if !params[:artist_id] %>
     <div class="col-md-4" style="background-color:blue">
-      <center>Most Popular Reviews:</center>
+      <center><h2>Top 5 Reviews:</h2></center>
       <% @popular_albums.each do |popular_album| %>
         <center><p> <%= link_to image_tag(popular_album.image.url(:med)), album_path(popular_album) %> 
         <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p><center><br>
