@@ -1,5 +1,7 @@
 <h1><center><strong>Artists</strong></center></h1>
-
-<% @artists.each do |artist| %>
-  <p class="well"><%= link_to "#{artist.name}", artist_path(artist) %> </p>
-<% end %>
+<hr>
+<div class="container">
+  <% @artists.each do |artist| %>
+    <p class="well"><%= link_to "#{artist.name}", artist_path(artist) %> </p>
+  <% end %>
+</div>
