@@ -8,11 +8,16 @@
 <% end %>
 
 
-<div class="container">
+<%if !params[:artist_id]%>
+  <div class="container">
+  <div class="col-md-8" style="background-color:#B0C4DE">
+<% else %>
+  <div class="container-fluid">
+  <div class="container" style="background-color:#B0C4DE">
+<% end %>
 
-
-  <div class="col-md-9" style="background-color:#B0C4DE">
     <center><h2>Latest Reviews:</h2></center>
+
     <table class="table hover-table">
       <% @albums[0..9].each do |album| %>
         <tr>
@@ -24,8 +29,10 @@
     </table>
   </div>
 
+  <div class="col-md-1"></div>
+
   <% if !params[:artist_id] %>
-    <div class="col-md-3" style="background-color:#a3c2c2">
+    <div class="col-md-3" style="background-color:#ffa31a">
       <center><h2>Most Read:</h2></center>
       <% @popular_albums.each do |popular_album| %>
         <center><p> <%= link_to image_tag(popular_album.image.url(:med)), album_path(popular_album) %> 
