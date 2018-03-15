@@ -1,8 +1,9 @@
 <h1><center><strong> FIND ALBUMS BY GENRE. </strong></center></h1>
 
-  
-<div class="btn-group">
-  <% @genres.each do |genre| %>
-    <%= link_to "#{genre.name}", genre_path(genre), class: 'btn btn-success'  %>
-  <% end %>
+<div class="container">  
+  <div class="btn-group">
+    <% @genres.each do |genre| %>
+      <%= link_to "#{genre.name}", genre_path(genre), class: 'btn btn-success'  %>
+    <% end %>
+  </div>
 </div>
