@@ -5,7 +5,6 @@ class Album < ActiveRecord::Base
   has_many :genres, through: :album_genres
 
   validates :name, presence: { message: "of the album is required!"}
-
   validates :artist, presence: { message: "must be chosen or entered!" }
 
   accepts_nested_attributes_for :genres
