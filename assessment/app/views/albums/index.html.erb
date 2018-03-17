@@ -15,9 +15,7 @@
   <div class="container-fluid">
   <div class="container" style="background-color:#B0C4DE">
 <% end %>
-
-    <center><h2>Latest Reviews:</h2></center>
-
+    <center><h2>The Latest:</h2></center>
     <table class="table hover-table">
       <% @albums[0..9].each do |album| %>
         <tr>
@@ -29,7 +27,7 @@
     </table>
   </div>
 
-  <div class="col-md-1"></div>
+  <div class="col-md-1" style="background-color:black"></div>
 
   <% if !params[:artist_id] %>
     <div class="col-md-3" style="background-color:#ffa31a">
