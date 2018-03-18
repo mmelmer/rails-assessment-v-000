@@ -1,14 +1,9 @@
 <% if no_artist_selected? %>
-
   <div class="container-fluid" style="background-color:lightgray">
     <center><p class="label"><%= link_to "Browse Artists", artists_path %></p>
     <p class="label"><%= link_to "Browse Users", users_path %></p>
     <p class="label"><%= link_to "Browse Genres", genres_path %></p></center>
   </div>
-<% end %>
-
-
-<%if no_artist_selected? %>
   <div class="container">
   <div class="col-md-8" style="background-color:#B0C4DE">
 <% else %>
@@ -27,7 +22,7 @@
     </table>
   </div>
 
-  <div class="col-md-1" style="background-color:black"></div>
+<div class="col-md-1" style="background-color:black"></div>
 
   <% if no_artist_selected? %>
     <div class="col-md-3" style="background-color:#ffa31a">
