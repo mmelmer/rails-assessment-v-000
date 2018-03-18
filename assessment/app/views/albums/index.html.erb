@@ -1,4 +1,4 @@
-<% if !params[:artist_id] %>
+<% if no_artist_selected? %>
 
   <div class="container-fluid" style="background-color:lightgray">
     <center><p class="label"><%= link_to "Browse Artists", artists_path %></p>
@@ -8,7 +8,7 @@
 <% end %>
 
 
-<%if !params[:artist_id]%>
+<%if no_artist_selected? %>
   <div class="container">
   <div class="col-md-8" style="background-color:#B0C4DE">
 <% else %>
@@ -29,7 +29,7 @@
 
   <div class="col-md-1" style="background-color:black"></div>
 
-  <% if !params[:artist_id] %>
+  <% if no_artist_selected? %>
     <div class="col-md-3" style="background-color:#ffa31a">
       <center><h2>Most Read:</h2></center>
       <% @popular_albums.each do |popular_album| %>
