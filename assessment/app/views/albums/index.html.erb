@@ -5,10 +5,10 @@
     <p class="label"><%= link_to "Browse Genres", genres_path %></p></center>
   </div>
   <div class="container">
-  <div class="col-md-8" style="background-color:#B0C4DE">
+    <div class="col-md-9" style="background-color:#B0C4DE">
 <% else %>
   <div class="container-fluid">
-  <div class="container" style="background-color:#B0C4DE">
+    <div class="container" style="background-color:#B0C4DE">
 <% end %>
     <center><h2>The Latest:</h2></center>
     <table class="table hover-table">
@@ -22,14 +22,12 @@
     </table>
   </div>
 
-<div class="col-md-1" style="background-color:black"></div>
-
   <% if no_artist_selected? %>
     <div class="col-md-3" style="background-color:#ffa31a">
       <center><h2>Most Read:</h2></center>
       <% @popular_albums.each do |popular_album| %>
         <center><p> <%= link_to image_tag(popular_album.image.url(:med)), album_path(popular_album) %> 
-        <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p><center><br>
+        <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p></center><br>
       <% end %>
     </div>
   <% end %>
