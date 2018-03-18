@@ -21,7 +21,7 @@
 
     <p><%= @album.review %></p>
 
-    <% if current_user && @album.user_id == current_user.id %>
+    <% if author_viewing? %>
       <p class="label"><%= link_to "edit this review.", edit_album_path(@album) %></p>
     <% end %>
   </div>
