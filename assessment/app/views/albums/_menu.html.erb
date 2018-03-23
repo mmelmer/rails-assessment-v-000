@@ -1,0 +1,12 @@
+<% if no_artist_selected? %>
+  <div class="container-fluid" style="background-color:lightgray">
+    <center><p class="label"><%= link_to "Browse Artists", artists_path %></p>
+    <p class="label"><%= link_to "Browse Users", users_path %></p>
+    <p class="label"><%= link_to "Browse Genres", genres_path %></p></center>
+  </div>
+  <div class="container">
+    <div class="col-md-9" style="background-color:#B0C4DE">
+<% else %>
+  <div class="container-fluid">
+    <div class="container" style="background-color:#B0C4DE">
+<% end %>

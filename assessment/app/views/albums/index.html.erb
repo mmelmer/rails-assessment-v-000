@@ -1,15 +1,5 @@
-<% if no_artist_selected? %>
-  <div class="container-fluid" style="background-color:lightgray">
-    <center><p class="label"><%= link_to "Browse Artists", artists_path %></p>
-    <p class="label"><%= link_to "Browse Users", users_path %></p>
-    <p class="label"><%= link_to "Browse Genres", genres_path %></p></center>
-  </div>
-  <div class="container">
-    <div class="col-md-9" style="background-color:#B0C4DE">
-<% else %>
-  <div class="container-fluid">
-    <div class="container" style="background-color:#B0C4DE">
-<% end %>
+<%= render "menu" %>
+   
     <center><h2>The Latest:</h2></center>
     <table class="table hover-table">
       <% @albums[0..9].each do |album| %>
@@ -23,12 +13,7 @@
   </div>
 
   <% if no_artist_selected? %>
-    <div class="col-md-3" style="background-color:#ffa31a">
-      <center><h2>Most Read:</h2></center>
-      <% @popular_albums.each do |popular_album| %>
-        <center><p> <%= link_to image_tag(popular_album.image.url(:med)), album_path(popular_album) %> 
-        <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p></center><br>
-      <% end %>
-    </div>
+    <%= render "sidebar" %>
   <% end %>
+  
 </div>
