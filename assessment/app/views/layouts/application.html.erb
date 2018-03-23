@@ -1,51 +1,37 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <title>Assessment</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  
+  <head>
+    <title>Assessment</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
-  <% if notice %>
-    <p class="alert-info"><%= notice %></p>
-  <% end %>
+  <% render :partial => '/layouts/messages' %>
 
-  <% if alert %>
-    <p class="alert"><%= alert %></p>
-  <% end%>
+  </head>
 
-</head>
-<body>
-
-
- <header class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+  <body>
+   <header class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <hr>
+          <div class="col-md-4">
+            <li><%= link_to "Home", root_path %></li>
+            <%= render :partial => '/layouts/left_links' %>
+          </div>
+          <div class="col-md-4">
+            <h1><p class="text-warning">rekordne ocene.</p></h1>
+          </div>
+          <div class="col-md-4 text-right">
+            <%= render :partial => '/layouts/right_links' %> 
+          </div>
+        </div>
         <hr>
-        <div class="col-md-4">
-          <li><%= link_to "Home", root_path %></li>
-          <% if user_signed_in? %>
-            <li> <%= link_to "Post a New Review", new_album_path %> </li>
-          <% else %>
-            <li><%=link_to "Sign In", new_user_session_path %></li>
-            <li><%=link_to "Sign In With Facebook", user_facebook_omniauth_authorize_path %></li>
-            <li><%=link_to "Sign Up", new_user_registration_path %></li>
-          <% end %>
-        </div>
-        <div class="col-md-4">
-          <h1><p class="text-warning">rekordne ocene.</p></h1>
-        </div>
-        <div class="col-md-4 text-right">
-          <% if user_signed_in? %>
-            <p class="text-primary">Logged in as <%= current_user.email %></o><br>
-            <p><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
-            <p><%= link_to "Edit Your Profile", edit_user_path(current_user) %></p>
-          <% end %>
-        </div>
-      </div>
-      <hr>
-  </header>
+    </header>
 
-<%= yield %>
+    <%= yield %>
+  
+  </body>
 
-</body>
 </html>
