@@ -3,17 +3,17 @@
 
   <h1><center><%= "#{@album.artist.name} - "%><em><%= "#{@album.name}" %></em></center></h1>
   <hr> 
-  <div class="col-sm-3">
-    <p> <%= image_tag(@album.image.url(:med)) %> </p>
-    <p><h3><small>Release Date: <%= release_date_display(@album) %></h3></small></p>
+    <div class="col-sm-3">
+      <p> <%= image_tag(@album.image.url(:med)) %> </p>
+      <p><h3><small>Release Date: <%= release_date_display(@album) %></h3></small></p>
 
-    <div class="btn-group">
-      <div class="btn-label">Genre(s):</div>
-      <% @album.genres.each do |genre| %>
-        <h4><%= link_to "#{genre.name}", genre_path(genre), class: 'btn btn-success' %></h4>
-      <% end %>
-    </div>
-  </div>
+      <div class="btn-group">
+        <div class="btn-label">Genre(s):</div>
+          <% @album.genres.each do |genre| %>
+            <h4><%= link_to "#{genre.name}", genre_path(genre), class: 'btn btn-success' %></h4>
+          <% end %>
+        </div>
+      </div>
 
   <div class="col-sm-9">
 

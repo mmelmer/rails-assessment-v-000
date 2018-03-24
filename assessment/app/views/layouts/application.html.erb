@@ -8,14 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
-  <% render :partial => '/layouts/messages' %>
-
   </head>
 
   <body>
-   <header class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <hr>
+    <header class="navbar navbar-inverse navbar-fixed-top">
+        <%= render :partial => '/layouts/messages' %>
+      <div class="container">       
+        <hr>
           <div class="col-md-4">
             <li><%= link_to "Home", root_path %></li>
             <%= render :partial => '/layouts/left_links' %>
@@ -27,7 +26,12 @@
             <%= render :partial => '/layouts/right_links' %> 
           </div>
         </div>
-        <hr>
+      <hr>
+      <div class="container-fluid" style="background-color:lightgray">
+        <center><p class="label"><%= link_to "Browse Artists", artists_path %></p>
+        <p class="label"><%= link_to "Browse Users", users_path %></p>
+        <p class="label"><%= link_to "Browse Genres", genres_path %></p></center>
+      </div>
     </header>
 
     <%= yield %>

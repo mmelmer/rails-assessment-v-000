@@ -1,5 +1,10 @@
-<%= render "menu" %>
-   
+<% if no_artist_selected? %>
+  <div class="container">
+    <div class="col-md-9" style="background-color:#B0C4DE">
+<% else %>
+  <div class="container-fluid">
+    <div class="container" style="background-color:#B0C4DE">
+<% end %>  
     <center><h2>The Latest:</h2></center>
     <table class="table hover-table">
       <% @albums[0..9].each do |album| %>
