@@ -1,5 +1,5 @@
 <div class="col-md-3" style="background-color:#ffa31a">
-      <center><h2>Most Read:</h2></center>
+      <hr><center><h2>Top Reviews:</h2></center><br>
       <% @popular_albums.each do |popular_album| %>
         <center><p> <%= link_to image_tag(popular_album.image.url(:med)), album_path(popular_album) %> 
         <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p></center><br>
