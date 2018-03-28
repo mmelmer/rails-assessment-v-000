@@ -20,21 +20,21 @@
       <% end %>
 
     <h3>Genre(s):</h3>
-      <div class="btn-group">
+      
         <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>
-      </div>
+      
       <p>AND/OR create a new genre:</p>
         <%= f.fields_for :genres, @album.genres.build do |genres_fields| %>
           <%= genres_fields.text_field :name %>
         <% end %><br><br
-    <h3>Upload Album Cover Image Here:</h3><br>
+    <h3>Upload Album Cover Image:</h3><br>
       <%= f.file_field :image %>
   </div>
   
   <div class="col-md-9">
-    <h3><strong>Write Your Review Here.</h3></strong><br>
-      <%= f.text_area :review %>
-      <%= f.submit "Submit" %>
+    <hr>
+    <%= f.text_area :review, size: "90x20", :placeholder => "Write Your Review Here."  %>
+    <%= f.submit "Submit" %>
   </div>
 
 <% end %>
