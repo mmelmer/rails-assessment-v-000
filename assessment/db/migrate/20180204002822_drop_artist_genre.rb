@@ -1,5 +1,5 @@
 class DropArtistGenre < ActiveRecord::Migration
-  def change
-    drop_table :artist_genres
+  def up
+    drop_table :users
   end
 end

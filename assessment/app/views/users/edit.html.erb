@@ -13,17 +13,17 @@
   <h2><center>Tell Us More About Yourself!</center></h2>
     <hr>
     <div class="col-md-4">
-      <h3>Upload A Profile Image:</h3>
+      <p>Profile Image:</p>
         <%= f.file_field :image %><br>
 
         <p class="label"><%= link_to "Edit Your Registration Info Here.", edit_user_registration_path %></p><br>
 
-        <p class="label"><%= link_to "Cancel Your Account Here.", cancel_user_registration_path %></p><br><br>
-        <%= link_to "No thanks.", user_path(@user) %>
+        <p class="label"><%= link_to "Cancel Your Account Here.", cancel_user_registration_path %></p><br><br><br>
+        <p class="label"><%= link_to "No thanks - take me back to my page", user_path(@user) %></p>
     </div>
 
     <div clas="col-md-8">
-      <%= f.text_area :bio, size: "60x20", :value => @bio, :placeholder => "Enter Your Bio Here." %>
+      <%= f.text_area :bio, size: "60x15", :value => @bio, :placeholder => "Enter Your Bio Here." %>
       <%= f.submit "Update Your Profile" %>
     </div>
 
