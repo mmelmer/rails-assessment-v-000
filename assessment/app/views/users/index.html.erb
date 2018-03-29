@@ -1,5 +1,5 @@
-<h1><center> Browse Reviews by User. </center></h1>
-
+<h1><center><strong>Browse Reviews by User.</strong></center></h1>
+<hr>
 <div class="container">
   <% @users.each do |user| %>
     <%= link_to "#{user.email}", user_path(user) %><br />

@@ -1,5 +1,8 @@
 <h1><center><strong> <%= @genre.name %> </strong></center></h1>
-
+  <hr>
+<div class="container">
   <% @genre.albums.each do |album| %>
-    <%= link_to "#{album.name}", album_path(album) %><br><br>
+    <h2><small><%= link_to "#{album.name}", album_path(album) %></small></h2> 
+    by <%= link_to "#{album.artist.name}", artist_path(album.artist) %><br><br>
   <% end %>
+</div>
