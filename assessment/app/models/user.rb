@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :albums
+  has_many :albums, dependent: :destroy
 
    devise :database_authenticatable, :registerable, :recoverable, :rememberable, :omniauthable, omniauth_providers: %i[facebook]
 
