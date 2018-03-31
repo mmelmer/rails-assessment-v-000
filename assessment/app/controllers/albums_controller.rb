@@ -1,7 +1,5 @@
 class AlbumsController < ApplicationController
-  
   before_action :authenticate_user!, except: [:index, :show]
-
   def index
     @users = User.all
     @artists = Artist.all
@@ -47,7 +45,6 @@ class AlbumsController < ApplicationController
   end
 
   private
-
     def album_params
       params.require(:album).permit(
           :name,
@@ -60,5 +57,4 @@ class AlbumsController < ApplicationController
           artist_attributes: [:name]
         )
     end
-
 end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :albums, dependent: :destroy
 
-   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :omniauthable, omniauth_providers: %i[facebook]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :omniauthable, omniauth_providers: %i[facebook]
 
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }, :default_url => "default_:style.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
@@ -12,6 +12,4 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
-
-
 end

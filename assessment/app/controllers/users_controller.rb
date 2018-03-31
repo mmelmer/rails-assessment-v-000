@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
   end
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   private
-
     def user_params
       params.require(:user).permit(
         :email,
@@ -34,5 +32,4 @@ class UsersController < ApplicationController
         album_ids: []
         )
     end
-
 end

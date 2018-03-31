@@ -1,5 +1,4 @@
 module AlbumsHelper
-
   def no_artist_selected?
     !params[:artist_id]
   end
@@ -11,5 +10,4 @@ module AlbumsHelper
   def release_date_display(object)
     object.release_date ? object.release_date : "???"
   end
-
 end

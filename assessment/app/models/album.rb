@@ -9,7 +9,7 @@ class Album < ActiveRecord::Base
 
   accepts_nested_attributes_for :genres
 
-  has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "300x300"}, :default_url => ":style/default.jpg"
+  has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "300x300" }, :default_url => ":style/default.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   scope :most_popular, -> (limit){ order("counter desc").limit(limit)}
@@ -35,6 +35,4 @@ class Album < ActiveRecord::Base
     self.save
     return self.counter
   end
-
-
 end

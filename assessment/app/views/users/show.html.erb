@@ -1,17 +1,17 @@
-<h1><center><%= @user.email%></center></h1>
-
-    <p> <%= image_tag(@user.image.url(:med)) %> </p>
-    
-    <p>Bio:</p>
-    <%= @user.bio %>
-
-    <% if !@user.albums.empty? %>
-      <p> Top Reviews by<%= "#{@user.email}" %>:</p>
-      <p> <% Album.by_user(@user.id).most_popular(5).each do |album| %><p>
-      <%= link_to "#{album.name}", album_path(album) %>
-      <% end %>
-    <% elsif @user == current_user %>
-      <p>You haven't posted any <%= link_to "reviews", new_album_path %> yet!</p>
-    <% else %>
-      <p>Sorry, <%= @user.email %> hasn't posted any reviews yet!</p>
+<h1><small><center><%= @user.email%></center></small></h1>
+<hr>
+<div class="container">
+  <p> <%= image_tag(@user.image.url(:med)) %> </p>   
+  <p>Bio:</p>
+  <%= @user.bio %>
+  <% if !@user.albums.empty? %>
+    <p> Top Reviews by<%= "#{@user.email}" %>:</p>
+    <p> <% Album.by_user(@user.id).most_popular(5).each do |album| %><p>
+    <%= link_to "#{album.name}", album_path(album) %>
     <% end %>
+  <% elsif @user == current_user %>
+    <p>You haven't posted any <%= link_to "reviews", new_album_path %> yet!</p>
+  <% else %>
+    <p>Sorry, <%= @user.email %> hasn't posted any reviews yet!</p>
+  <% end %>
+</p>
