@@ -2,7 +2,8 @@
   <hr>
 <div class="container">
   <% @genre.albums.each do |album| %>
-    <h2><small><%= link_to "#{album.name}", album_path(album) %></small></h2> 
-    by <%= link_to "#{album.artist.name}", artist_path(album.artist) %><br><br>
+    <h2><small><%= album.artist.name %>:
+    <em><%= link_to "#{album.name}", album_path(album) %></em></small></h2>
+    by <%= link_to "#{album.user.email}", user_path(album.user) %><br><br>
   <% end %>
 </div>

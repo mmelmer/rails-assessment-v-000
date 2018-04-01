@@ -2,12 +2,13 @@
 <hr>
 <div class="container">
   <p> <%= image_tag(@user.image.url(:med)) %> </p>   
-  <p>Bio:</p>
-  <%= @user.bio %>
+  <%= @user.bio %><br></br>
   <% if !@user.albums.empty? %>
     <p> Top Reviews by<%= "#{@user.email}" %>:</p>
-    <p> <% Album.by_user(@user.id).most_popular(5).each do |album| %><p>
-    <%= link_to "#{album.name}", album_path(album) %>
+    <% Album.by_user(@user.id).most_popular(5).each do |album| %><p>
+      <h2><small><%= album.artist.name %>:
+      <em><%= link_to "#{album.name}", album_path(album) %></em></small></h2>
+      by <%= link_to "#{album.user.email}", user_path(album.user) %><br><br>
     <% end %>
   <% elsif @user == current_user %>
     <p>You haven't posted any <%= link_to "reviews", new_album_path %> yet!</p>
