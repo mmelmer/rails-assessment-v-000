@@ -1,7 +1,7 @@
 <h1><center><strong>Artists</strong></center></h1>
 <hr>
-<div class="container">
+<center><div class="container">
   <% @artists.each do |artist| %>
-    <p class="well"><%= link_to "#{artist.name}", artist_path(artist) %> </p>
+    <p class="btn"><%= link_to "#{artist.name}", artist_path(artist) %> </p>
   <% end %>
-</div>
+</div></center>

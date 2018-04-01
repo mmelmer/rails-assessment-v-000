@@ -1,7 +1,7 @@
 <h1><center><strong>Browse Reviews by User.</strong></center></h1>
 <hr>
-<div class="container">
+<center><div class="container">
   <% @users.each do |user| %>
-    <%= link_to "#{user.email}", user_path(user) %><br />
+    <p class="btn"><%= link_to "#{user.email}", user_path(user) %></p>
   <% end %>
-</div>
+</div></center>
