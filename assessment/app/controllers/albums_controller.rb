@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
       artist = Artist.find(params[:artist_id])
       @albums = artist.albums
     else
-      @albums = Album.all
+      @albums = Album.all[0..9]
     end
     @popular_albums = Album.most_popular(5)
   end

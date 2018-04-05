@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @albums = Album.by_user(@user.id).most_popular(5)
   end
 
   def index

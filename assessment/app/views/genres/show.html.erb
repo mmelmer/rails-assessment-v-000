@@ -1,9 +1,5 @@
 <h1><center><strong> <%= @genre.name %> </strong></center></h1>
   <hr>
 <div class="container">
-  <% @genre.albums.each do |album| %>
-    <h2><small><%= link_to "#{album.artist.name}", artist_path(album.artist) %>:
-    <em><%= link_to "#{album.name}", album_path(album) %></em></small></h2>
-    by <%= link_to "#{album.user.email}", user_path(album.user) %><br><br>
-  <% end %>
+  <%= render :partial => '/layouts/album_list' %>
 </div>

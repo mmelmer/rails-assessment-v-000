@@ -6,19 +6,9 @@
     <div class="container" style="background-color:#B0C4DE">
 <% end %> 
     <hr> 
-    <center><h2>The Latest:</h2></center>
-    <table class="table hover-table">
-      <% @albums[0..9].each do |album| %>
-        <tr>
-          <td><%= link_to image_tag(album.image.url(:large)), album_path(album) %></td>
-          <td><h2><%= link_to "#{album.artist.name}", artist_path(album.artist) %>: <em><%= link_to "#{album.name}", album_path(album) %></em></h2>
-            <p><h5>by <%= link_to "#{album.user.email}", user_path(album.user) %></p></h5></td>
-        </tr>
-      <% end %>
-    </table>
+    <%= render :partial => '/layouts/album_picture_list' %>
+    </div>
+    <% if no_artist_selected? %>
+      <%= render "sidebar" %>
+    <% end %>
   </div>
-
-  <% if no_artist_selected? %>
-    <%= render "sidebar" %>
-  <% end %>
-</div>
