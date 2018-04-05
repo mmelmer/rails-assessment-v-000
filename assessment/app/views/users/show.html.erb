@@ -4,9 +4,9 @@
   <p> <%= image_tag(@user.image.url(:med)) %> </p>   
   <%= @user.bio %><br></br>
   <% if !@user.albums.empty? %>
-    <p> Top Reviews by<%= "#{@user.email}" %>:</p>
+    <p> Top Reviews by <%= " #{@user.email}" %>:</p>
     <% Album.by_user(@user.id).most_popular(5).each do |album| %><p>
-      <h2><small><%= album.artist.name %>:
+      <h2><small><%= link_to "#{album.artist.name}", artist_path(album.artist) %>:
       <em><%= link_to "#{album.name}", album_path(album) %></em></small></h2>
       by <%= link_to "#{album.user.email}", user_path(album.user) %><br><br>
     <% end %>

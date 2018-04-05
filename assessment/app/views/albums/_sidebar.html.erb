@@ -2,6 +2,6 @@
       <hr><center><h2>Top Reviews:</h2></center><br>
       <% @popular_albums.each do |popular_album| %>
         <center><p> <%= link_to image_tag(popular_album.image.url(:med)), album_path(popular_album) %> 
-        <p><%= link_to "#{popular_album.name} - #{popular_album.artist.name}", album_path(popular_album) %></p></center><br>
+        <p><%= link_to "#{popular_album.artist.name}", artist_path(popular_album.artist) %> - <em><%= link_to "#{popular_album.name}", album_path(popular_album) %></em></p></center><br>
       <% end %>
     </div>
