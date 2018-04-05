@@ -1,7 +1,5 @@
 <h1><center><strong><%= @artist.name %></strong></center></h1>
 
-<%= link_to "Reviews Archive", artist_albums_path(@artist)%><br><br>
+<%= link_to "Existing Reviews", artist_albums_path(@artist)%><br><br>
 
 <%= link_to "Post a new review for #{@artist.name}", new_artist_album_path(@artist) %>
-
-<h2>Artist Bio: <%= @artist.bio %></h2>
