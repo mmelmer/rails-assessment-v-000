@@ -1,12 +1,10 @@
 <div class="alerts">
+  <% if notice %>
+    <div class="alert-info">::::<%= notice %>::::</div>
+  <% end %>
 
-<% if notice %>
-  <div class="alert-info">::::<%= notice %>::::</div>
-<% end %>
-
-<% if alert %>
-  <div class="alert-warning">!!!<%= alert %>!!!</div>
-<% end%>
-
+  <% if alert %>
+    <div class="alert-warning">!!!<%= alert %>!!!</div>
+  <% end%>
 </div>
 

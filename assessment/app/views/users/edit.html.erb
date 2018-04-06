@@ -1,6 +1,6 @@
   <%= form_for @user, html: { multipart: true } do |f| %>
     
-    <% if @user.errors.any? %>
+  <% if @user.errors.any? %>
     <div class="error_explanation">
       We can't save your profile because:<br>
       <% @user.errors.full_messages.each do |msg| %>
@@ -9,21 +9,16 @@
     </div>
   <% end %>
     
-  <h2><center>Tell Us More About Yourself!</center></h2>
-    <hr>
-    <div class="col-md-4">
-      <p>Profile Image:</p>
-        <%= f.file_field :image %><br>
+  <h2><center>Tell Us More About Yourself!</center></h2><hr>
+  <div class="col-md-4">
+    <ul><h2><small>Profile Image:</small></h2>
+    <%= f.file_field :image %></ul><br>
+    <ul><h4><%= link_to "Change Username/Password.", edit_user_registration_path %></h4></ul><br><br>
+    <ul><h5><small><%= link_to "No thanks - take me back to my page", user_path(@user) %></small></h5></ul>
+  </div>
 
-        <p class="label"><%= link_to "Edit Your Registration Info Here.", edit_user_registration_path %></p><br>
-
-        <p class="label"><%= link_to "Cancel Your Account Here.", cancel_user_registration_path %></p><br><br><br>
-        <p class="label"><%= link_to "No thanks - take me back to my page", user_path(@user) %></p>
-    </div>
-
-    <div clas="col-md-8">
-      <%= f.text_area :bio, size: "60x15", :value => @bio, :placeholder => "Enter Your Bio Here." %>
-      <%= f.submit "Update Your Profile" %>
-    </div>
-
+  <div clas="col-md-8">
+    <ul><%= f.text_area :bio, size: "60x15", :value => @bio, :placeholder => "Enter Your Bio Here." %>
+    <%= f.submit "Update" %></ul>
+  </div>
   <% end %><br><br>
