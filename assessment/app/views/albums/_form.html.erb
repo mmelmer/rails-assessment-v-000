@@ -15,8 +15,8 @@
     <h3>Artist:</h3>  
       <%= f.collection_select(:artist_id, Artist.all, :id, :name) %>    
         <p>OR add a new artist:</p>
-      <%= f.fields_for :artist, @album.build_artist do |f_artist| %>     
-        <%= f_artist.text_field :name %>
+      <%= f.fields_for :artist, @album.build_artist do |artist_fields| %>     
+        <%= artist_fields.text_field :name %>
       <% end %>
 
     <h3>Genre(s):</h3>
