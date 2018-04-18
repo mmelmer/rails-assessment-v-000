@@ -22,7 +22,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    raise params.inspect
+    #raise params.inspect
     @album = Album.new(album_params)
     @album.user_id = current_user.id
     if @album.save

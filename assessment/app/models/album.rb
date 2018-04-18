@@ -7,9 +7,10 @@ class Album < ActiveRecord::Base
   validates :name, presence: { message: "of the album is required!"}
   validates :name, uniqueness: { message: "has already been entered!"}
   validates :artist, presence: { message: "must be chosen or entered!" }
-  validates :genre, uniqueness: { message: "has already been created!"}
+  #validates :genre, uniqueness: { message: "has already been created!"}
 
-  accepts_nested_attributes_for :genres, :artist
+  accepts_nested_attributes_for :genres
+  accepts_nested_attributes_for :artist
 
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "300x300" }, :default_url => ":style/default.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
@@ -18,18 +19,18 @@ class Album < ActiveRecord::Base
   scope :by_user, ->(user_id){ where("albums.user_id = ?", user_id) }
 
   def artist_attributes=(artist_attributes)
-    #artist_attributes.each do |artist_attribute|
-      artist = Artist.find_or_create_by(artist_attributes)
-      self.artist = artist
-    #end
+    artist = Artist.find_or_create_by(artist_attributes)
+    self.artist = artist
   end
 
   def genres_attributes=(genres_attributes)
-    #binding.pry
-    #genre_attributes.each do |genre_attribute|
-    if genres_attributes[:name] != ""
-      genre = Genre.find_or_create_by(genres_attributes.values.first)
-      self.genres << genre
+    genres_attributes.values.each do |genre_attribute| 
+      if genre_attribute[:name] != ""
+        genre = Genre.find_or_create_by(genres_attributes.values.first)
+        if !self.genres.include? genre
+          self.genres << genre
+        end
+      end
     end
   end
 
