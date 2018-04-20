@@ -7,7 +7,6 @@ class Album < ActiveRecord::Base
   validates :name, presence: { message: "of the album is required!"}
   validates :name, uniqueness: { message: "has already been entered!"}
   validates :artist, presence: { message: "must be chosen or entered!" }
-  #validates :genre, uniqueness: { message: "has already been created!"}
 
   accepts_nested_attributes_for :genres
   accepts_nested_attributes_for :artist
@@ -19,14 +18,18 @@ class Album < ActiveRecord::Base
   scope :by_user, ->(user_id){ where("albums.user_id = ?", user_id) }
 
   def artist_attributes=(artist_attributes)
-    artist = Artist.find_or_create_by(artist_attributes)
-    self.artist = artist
+    artist_attributes.values.each do |artist_attribute|
+      if artist_attribute != ""
+        artist = Artist.find_or_create_by(artist_attributes)
+        self.artist = artist
+      end
+    end
   end
 
   def genres_attributes=(genres_attributes)
     genres_attributes.values.each do |genre_attribute| 
       if genre_attribute[:name] != ""
-        genre = Genre.find_or_create_by(genres_attributes.values.first)
+        genre = Genre.find_or_create_by(genre_attribute)
         if !self.genres.include? genre
           self.genres << genre
         end
