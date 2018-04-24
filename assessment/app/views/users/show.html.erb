@@ -1,14 +1,14 @@
 <h1><small><center><%= @user.email%></center></small></h1>
 <hr>
 <div class="container">
-  <p> <%= image_tag(@user.image.url(:med)) %> </p>   
-  <%= @user.bio %><br></br>
+  <p><%= image_tag(@user.image.url(:med)) %>   
+    <%= @user.bio ||= @user.email%> hasn't created a bio yet!<br></br>
+  </p><hr>
   <% if !@user.albums.empty? %>
-    <p> Top Reviews by <%= " #{@user.email}" %>:</p>
-    <%= render :partial => '/layouts/album_list' %>
+    <em><p>Top Reviews by <%= " #{@user.email}" %>:</p></em>
+      <%= render :partial => '/layouts/album_list' %>
   <% elsif @user == current_user %>
     <p>You haven't posted any <%= link_to "reviews", new_album_path %> yet!</p>
   <% else %>
     <p>Sorry, <%= @user.email %> hasn't posted any reviews yet!</p>
   <% end %>
-</p>
