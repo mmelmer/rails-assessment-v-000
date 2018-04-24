@@ -9,30 +9,34 @@
       </div>
     <% end %>
     
-    <h3><%= f.label :name, "Album Name:" %></h3>
-      <%= f.text_field :name %>
+    <h2><%= f.label :name, "Album Name:" %></h2>
+      <%= f.text_field :name %><hr>
     
     <h3>Artist:</h3>  
       <%= f.collection_select(:artist_id, Artist.all, :id, :name, prompt: true) %>    
         <p>OR add a new artist:</p>
       <%= f.fields_for :artist, @album.build_artist do |artist_fields| %>     
         <%= artist_fields.text_field :name %>
-      <% end %>
+      <% end %><hr>
 
-    <h3>Genre(s):</h3> 
-        <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>
+    <h3>Genre(s):</h3>
+      <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |b| %>
+        <p class="btn"><%= b.label %>
+        <%= b.check_box %></p>
+      <% end %>
       <p>AND/OR create a new genre:</p>
         <%= f.fields_for :genres, @album.genres.build do |genres_fields| %>
           <%= genres_fields.text_field :name %>
-        <% end %><br><br>
-    <h3>Upload Album Cover Image:</h3><br>
+        <% end %><br><hr>
+    <h3>Upload Album Cover Image:</h3>
       <%= f.file_field :image %>
+      <br>
   </div>
   
   <div class="col-md-9">
     <hr>
     <%= f.text_area :review, size: "90x20", :placeholder => "Write Your Review Here."  %>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Post Your Review." %>
   </div>
 
 <% end %>
