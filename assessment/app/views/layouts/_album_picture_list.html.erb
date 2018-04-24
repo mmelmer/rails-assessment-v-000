@@ -1,6 +1,6 @@
 <center><h2>The Latest:</h2></center>
 <table class="table hover-table">
-  <% @albums.each do |album| %>
+  <% @albums.reverse.each do |album| %>
     <tr>
       <td><%= link_to image_tag(album.image.url(:large)), album_path(album) %></td>
       <td><h2><%= link_to "#{album.artist.name}", artist_path(album.artist) %>: <em><%= link_to "#{album.name}", album_path(album) %></em></h2>
