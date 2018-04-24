@@ -1,35 +1,58 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Artist.create(
+  name: "Singer"
+  )
 
-# artist1 = Artist.create(
-#   name: "Singer"
-#   )
+Artist.create(
+  name: "Some other dude"
+  )
 
-# artist2 = Artist.create(
-#   name: "Some other dude"
-#   )
+Genre.create(
+  name: "rock"
+  )
 
-# album1 = Album.create(
-#   name: "songs",
-#   artist_id: 1,
-#   user_id:2
-#   )
+Genre.create(
+  name: "metal"
+  )
 
-# album2 = Album.create(
-#   name: "Some more songs",
-#   artist_id: 2,
-#   user_id: 1
-#   )
+Genre.create(
+  name: "pop"
+  )
 
-# user1 = User.create(
-#   email: "mike@mail.com"
-#   )
+Genre.create(
+  name: "electronic"
+  )
 
-# user2 = User.create(
-#   email: "griz@mail.com"
-#   )
+Genre.create(
+  name: "classical"
+  )
+
+Genre.create(
+  name: "psych"
+  )
+
+Genre.create(
+  name: "dance"
+  )
+
+
+User.create(
+  email: "mike@mail.com"
+  )
+
+User.create(
+  email: "griz@mail.com"
+  )
+
+Album.create(
+  name: "songs",
+  artist_id: 1,
+  user_id: 2,
+  genre_ids: [1, 3, 5]
+  )
+
+Album.create(
+  name: "Some more songs",
+  artist_id: 2,
+  user_id: 1,
+  genre_ids: [2, 3, 4]
+  )
