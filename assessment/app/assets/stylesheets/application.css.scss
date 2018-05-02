@@ -34,3 +34,8 @@ body {
   right: 750px;
 }
 
+.field_with_errors {
+  border-style: solid;
+  border-color: red;
+  border-width: 8 px;
+}

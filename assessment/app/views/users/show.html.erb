@@ -2,7 +2,7 @@
 <hr>
 <div class="container">
   <p><%= image_tag(@user.image.url(:med)) %>   
-    <%= @user.bio ||= @user.email%> hasn't created a bio yet!<br></br>
+    <%= @user.bio ||= "(#{@user.email} hasn't created a bio yet!)" %><br></br>
   </p><hr>
   <% if !@user.albums.empty? %>
     <em><p>Top Reviews by <%= " #{@user.email}" %>:</p></em>
