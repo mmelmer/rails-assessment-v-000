@@ -11,6 +11,9 @@
     
     <h2><%= f.label :name, "Album Name:" %></h2>
         <%= f.text_field :name %><hr>
+
+    <h3><%= f.label :release_date, "Release Date:" %></h3>
+        <%= f.date_field :release_date %>
     
     <h3>Artist:</h3>  
       <%= f.collection_select(:artist_id, Artist.all, :id, :name, prompt: true) %>    
