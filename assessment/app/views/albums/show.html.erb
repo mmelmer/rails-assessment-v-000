@@ -11,6 +11,12 @@
       <% end %>
     </div>
   </div>
+
+  <h1>Album Genres:</h1>
+  <% @album.album_genres.each do |album_genre|%>
+    <%= album_genre.name%>
+  <% end %>
+
 </div>
 
 <div class="col-md-9">

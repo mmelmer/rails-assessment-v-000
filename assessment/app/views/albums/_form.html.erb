@@ -32,6 +32,10 @@
       <p>AND/OR create a new genre:</p>
         <%= f.fields_for :genres, @album.genres.build do |genres_fields| %>
           <%= genres_fields.text_field :name %>
+        <% end %>
+        <%= f.fields_for :album_genres, @album.album_genres.build do |ag_fields| %>
+          <%= ag_fields.label :name, "Album Genre Name" %>
+          <%= ag_fields.text_field :name %>
         <% end %><br><hr>
     <h3>Upload Album Cover Image:</h3>
       <%= f.file_field :image %>
